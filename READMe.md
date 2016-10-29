@@ -1,27 +1,44 @@
-webpack使用方法
-1.安装
-	npm install webpack -g                                    //全局安装webpack
-	npm install -g webpack-dev-server                         //全局安装webpack服务器
-	cd 目录
-	npm init 
-	npm install webpack --save-dev                            //本地安装webpack ，装好引入之后可以使用 UglifyJsPlugin 文件压缩插件
-	npm install --save-dev style-loader css-loader            //安装css加载器
-	npm install --save-dev sass-loader node-sass webpack      //安装scss加载器
+#webpack使用方法
+<h3>1.安装</h3>
+```
+   npm install webpack -g                                    //全局安装webpack
+   npm install -g webpack-dev-server                         //全局安装webpack服务器
+   cd 目录
+    npm init 
+    npm install webpack --save-dev                            //本地安装webpack ，装好引入之后可以使用 UglifyJsPlugin 文件压缩插件
+    npm install --save-dev style-loader css-loader            //安装css加载器
+    npm install --save-dev sass-loader node-sass webpack      //安装scss加载器
     npm install --save-dev url-loader                         // 本地安装图片加载器
     npm install --save-dev jquery                             //本地安装jquery
-//	npm install --save-dev html-webpack-plugin@2              //安装自动构建html页面插件
+    npm install --save-dev html-webpack-plugin@2              //安装自动构建html页面插件
     npm install --save-dev webpack-dev-server                 //本地安装webpack服务器    要启动直接在命令行输入     
                                                               //    $ webpack-dev-server --inline
                                                               //热加载     $ webpack-dev-server --line--hot
+```
+<h3>编译命令</h3>
+```
+webpack – for building once for development
+webpack -p – for building once for production (minification)
+webpack --watch – for continuous incremental build
+webpack -d – to include source maps
+webpack --colors – for making things pretty
 
-2.新建一个 webpack.config.js
+```
+<h3>3.常用webpack.config.js配置</h3>
+```js
     /*其实整个文件的各种功能模块就是js中的一个个对象，所以要注意 "  ,  "不能少,缺了逗号会报错    */
     // webpack.config.js
     var path = require("path")                                 //兼容路径
     var webpack = require('webpack')                           //引入之后可以使用 UglifyJsPlugin 文件压缩插件
-    var HtmlWebpackPlugin = require('html-webpack-plugin')//html自动构建
+    var HtmlWebpackPlugin = require('html-webpack-plugin')     //html自动构建
+    
+    
+    
+    
+    
+    
 	module.exports = {
-	    // 入口
+	    // 入口文件的引入有三种写法
 //	    entry: ['./src/js/index'], 
 	    entry: { 
 	    	  index: './src/js/index.js',
@@ -32,16 +49,23 @@ webpack使用方法
 	    output: {
 	        path: './dist/js',
 	      //path: path.join(__dirname, 'dist/js'),
-	        filename: "bundle.js",                               //输出文件名
+	        filename: "bundle.js",                                   //输出文件名
 	    },
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	    //plugins - 保存插件的数组
 		plugins: [
-		    new webpack.optimize.UglifyJsPlugin({                //压缩代码抑制警告信息
+		    new webpack.optimize.UglifyJsPlugin({               //压缩代码抑制警告信息
 		      compressor: {
 		        warnings: false,
 		      },
 		    }),
-	        new webpack.optimize.OccurenceOrderPlugin(), /*通过计算模块出现次数来分配模块。这个经常被使用可以较快地获得模块。
+	        new webpack.optimize.OccurenceOrderPlugin(),           /*通过计算模块出现次数来分配模块。这个经常被使用可以较快地获得模块。
 		                                                                                                                                    这使得模块可以预读，建议这样可以减少总文件大小。
 		                                                     */
 		    new HtmlWebpackPlugin({                                //html自动构建
@@ -54,6 +78,12 @@ webpack使用方法
 		    }),
 		    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),//将引入的第三方库打包.这个要放到最后？
 		],
+		
+		
+		
+		
+		
+		
 		//存放加载器的地方，暂时是这样的QAQ
 		/*test: /\.css$/  是一个正则表达式
 		 * 左侧和右侧的   /    /  是正则的
@@ -86,4 +116,4 @@ webpack使用方法
 		        }
 		    },
 	};   
-	
+```	
