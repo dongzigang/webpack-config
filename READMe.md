@@ -23,6 +23,7 @@ webpack --watch – for continuous incremental build
 webpack -d – to include source maps
 webpack --colors – for making things pretty
 
+$ webpack-dev-server --inline --172.0.0.1 --port 9090   //修改默认端口号
 ```
 <h3>3.常用webpack.config.js配置</h3>
 ```js
