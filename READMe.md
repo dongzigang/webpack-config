@@ -7,7 +7,8 @@
     npm init 
     npm install webpack --save-dev                            //本地安装webpack ，装好引入之后可以使用 UglifyJsPlugin 文件压缩插件
     npm install --save-dev style-loader css-loader            //安装css加载器
-    npm install --save-dev sass-loader node-sass webpack      //安装scss加载器
+    npm install --save-dev jsx-loader                         //安装js加载器
+    npm install --save-dev sass-loader node-sass              //安装scss加载器
     npm install --save-dev url-loader                         // 本地安装图片加载器
     npm install --save-dev jquery                             //本地安装jquery
     npm install --save-dev html-webpack-plugin@2              //安装自动构建html页面插件
