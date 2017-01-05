@@ -12,9 +12,7 @@
     npm install --save-dev url-loader                         // 本地安装图片加载器
     npm install --save-dev jquery                             //本地安装jquery
     npm install --save-dev html-webpack-plugin@2              //安装自动构建html页面插件
-    npm install --save-dev webpack-dev-server                 //本地安装webpack服务器    要启动直接在命令行输入     
-                                                              //    $ webpack-dev-server --inline
-                                                              //热加载     $ webpack-dev-server --line--hot
+    npm install --save-dev webpack-dev-server                 //本地安装webpack服务器    要启动直接在命令行输入$ webpack-dev-server --inline ,热加载     $ webpack-dev-server --line --hot
 ```
 <h3>编译命令</h3>
 ```
@@ -24,7 +22,7 @@ webpack --watch – for continuous incremental build
 webpack -d – to include source maps
 webpack --colors – for making things pretty
 
-$ webpack-dev-server --inline --172.0.0.1 --port 9090   //修改默认端口号
+$ webpack-dev-server --inline --hot --172.0.0.1 --port 9090   //修改默认端口号
 ```
 <h3>3.常用webpack.config.js配置</h3>
 ```js
@@ -102,7 +100,7 @@ $ webpack-dev-server --inline --172.0.0.1 --port 9090   //修改默认端口号
 		            //.scss 文件使用 style-loader、css-loader 和 sass-loader 来编译处理
 		            { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
 		            //图片文件使用 url-loader 来处理，小于8kb的直接转为base64
-		            { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
+		            { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=static/images/[name].[ext]'}
 		        ]
 		    },
 		resolve: {
