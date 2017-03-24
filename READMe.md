@@ -1,5 +1,6 @@
 #webpack使用方法
 <h3>1.安装</h3>
+
 ```
    npm install webpack -g                                    //全局安装webpack
    npm install -g webpack-dev-server                         //全局安装webpack服务器
@@ -15,6 +16,8 @@
     npm install --save-dev webpack-dev-server                 //本地安装webpack服务器    要启动直接在命令行输入$ webpack-dev-server --inline ,热加载     $ webpack-dev-server --line --hot
 ```
 <h3>编译命令</h3>
+
+
 ```
 webpack – for building once for development
 webpack -p – for building once for production (minification)
@@ -24,7 +27,12 @@ webpack --colors – for making things pretty
 
 $ webpack-dev-server --inline --hot --172.0.0.1 --port 9090   //修改默认端口号
 ```
+
 <h3>3.常用webpack.config.js配置</h3>
+
+
+
+
 ```js
     /*其实整个文件的各种功能模块就是js中的一个个对象，所以要注意 "  ,  "不能少,缺了逗号会报错    */
     // webpack.config.js
