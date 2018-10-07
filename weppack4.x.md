@@ -1,3 +1,21 @@
+## 4.x 的修改及新增
+
+### 安装
+
+不在只安装webpack即可，还需要安装一个webpack-cli
+
+```
+npm install --save-dev webpack webpack-cli
+```
+
+### 配置
+
+默认的入口为'./src/'和默认出口'./dist'； 
+
+对压缩(optimization.minimize)的设置，默认在production时开启，在development时关闭。
+
+
+webapck.config.js
 ```js
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
@@ -31,7 +49,7 @@ const config = {
             {
                 test: /\.css$/,
                 use: [
-                    'vue-style-loader',                //可以不要
+                    'vue-style-loader',             
                     'style-loader',
                     'css-loader'
                 ]
@@ -68,6 +86,11 @@ const config = {
 if(isDev){
 
     config.devtool = "#cheap-moudule-eval-source-map"  // source-map
+    /*
+     * 新增了mode/--mode参数来表示是开发还是生产，mode有两个可选值：development和production，
+     * production不支持监听，production侧重于打包后的文件大小，development侧重于构建的速度。
+     * 4.x 必须配置这个选项
+     */ 
     config.mode= 'development',
     config.module.rules.push(
         {
